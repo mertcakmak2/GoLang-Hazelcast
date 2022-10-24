@@ -1,0 +1,35 @@
+version: '3.8'
+services:
+
+  go-app:
+    image: go-hazelcast-app
+    container_name: go-hazelcast-app
+    restart: "unless-stopped"
+    depends_on:
+      - member1
+      - member2
+      - member3
+    ports:
+      - 3000:3000
+
+  hazelcast-ui:
+    image: hazelcast/management-center
+    container_name: hazelcast-ui
+    restart: "unless-stopped"
+    ports:
+      - 8080:8080
+  
+  member1:
+    image: hazelcast/hazelcast:5.1.4
+    container_name: member1
+    restart: "unless-stopped"
+
+  member2:
+    image: hazelcast/hazelcast:5.1.4
+    container_name: member2
+    restart: "unless-stopped"
+
+  member3:
+    image: hazelcast/hazelcast:5.1.4
+    container_name: member3
+    restart: "unless-stopped"
