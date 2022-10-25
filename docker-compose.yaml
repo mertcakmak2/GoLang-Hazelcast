@@ -9,6 +9,7 @@ services:
       - member1
       - member2
       - member3
+      # - member4
     ports:
       - 3000:3000
 
@@ -33,3 +34,8 @@ services:
     image: hazelcast/hazelcast:5.1.4
     container_name: member3
     restart: "unless-stopped"
+
+  # member4:
+  #   image: hazelcast/hazelcast:5.1.4
+  #   container_name: member4
+  #   restart: "unless-stopped"
